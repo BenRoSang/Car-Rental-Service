@@ -1,7 +1,6 @@
 import { GetBooking } from '@/services';
 import { GetStaticProps } from 'next';
 import React from 'react'
-import History
 import HistoryCard from '@/components/HistoryCard';
 
 export const getStaticProps: GetStaticProps = async () => {
