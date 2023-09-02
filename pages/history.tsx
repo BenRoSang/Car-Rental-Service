@@ -17,7 +17,7 @@ function History() {
     useEffect(() => {
         const fetchBookings = async(userName:any) => {
 
-            const bookings:any = await GetBooking(userName);
+            const bookings:any = await GetBooking(userName, process.env.NEXT_PUBLIC_API_END_POINT || '');
             setBookings(bookings)
             window.setTimeout(() => {
                 setIsLoading(false)

@@ -1,6 +1,6 @@
 import request, { gql, GraphQLClient } from "graphql-request"
 
-export const GetCarLists =async () => {
+export const GetCarLists =async (url: string) => {
     const document = gql`
         query CarLists {
             carLists {
@@ -20,11 +20,12 @@ export const GetCarLists =async () => {
             }
         }
     `
-    const result = await request('https://api-ap-south-1.hygraph.com/v2/cllv5o9dl0brv01t66in36vc5/master', document);
+    // const result = await request('https://api-ap-south-1.hygraph.com/v2/cllv5o9dl0brv01t66in36vc5/master', document);
+    const result = await request(url, document);
     return result
 }
 
-export const GetStoreLocation =async () => {
+export const GetStoreLocation =async (url:string) => {
     const document = gql`
         query CarLists {
             storeLocations {
@@ -32,12 +33,12 @@ export const GetStoreLocation =async () => {
             }
         }
     `
-    const result = await request('https://api-ap-south-1.hygraph.com/v2/cllv5o9dl0brv01t66in36vc5/master', document);
+    const result = await request(url, document);
 
     return result
 }
 
-export const CreateBooking = async(req: any): Promise<any> => {
+export const CreateBooking = async(req: any, url:string): Promise<any> => {
 
     const mutation = gql`
         mutation MyMutation {
@@ -65,7 +66,7 @@ export const CreateBooking = async(req: any): Promise<any> => {
                 }
             }
         `
-        const resultPublish = await request('https://api-ap-south-1.hygraph.com/v2/cllv5o9dl0brv01t66in36vc5/master', publishMutation);
+        const resultPublish = await request(url, publishMutation);
         return resultPublish
     }
     return result
@@ -73,7 +74,7 @@ export const CreateBooking = async(req: any): Promise<any> => {
 
 
 
-export const GetBooking = async(userName:StringConstructor) => {
+export const GetBooking = async(userName:string, url: string) => {
     const document = gql`
         query MyQuery {
             bookings(where: {userName: "`+userName+`"}) {
@@ -97,6 +98,6 @@ export const GetBooking = async(userName:StringConstructor) => {
             }
         }
     `
-    const result = await request('https://api-ap-south-1.hygraph.com/v2/cllv5o9dl0brv01t66in36vc5/master', document);
+    const result = await request(url, document);
     return result
 }

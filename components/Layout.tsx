@@ -1,10 +1,13 @@
 import React from 'react'
 import Navbar from './Navbar'
+import { useUser } from '@clerk/nextjs';
 
 function Layout({children} : {children: React.ReactNode}) {
+  const { isSignedIn, user, isLoaded } = useUser();
+
   return (
     <>
-        <Navbar/>
+        {isSignedIn && <Navbar/> }
         {children}
     </>
   )

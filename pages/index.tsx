@@ -13,14 +13,13 @@ import { currentUser } from '@clerk/nextjs'
 const inter = Inter({ subsets: ['latin'] })
 
 export const getStaticProps: GetStaticProps = async () => {
-    const res = await GetCarLists();
-    const resLoc = await GetStoreLocation();
+    const res = await GetCarLists(process.env.API_END_POINT || '');
+    const resLoc = await GetStoreLocation(process.env.API_END_POINT || "");
     return { props: { res, resLoc } }
 }
 
 
 export default function Home({res, resLoc}: any) {
-
   const [oriCarList, setOriCarList] = useState<any>(res.carLists)
   const [carList, setCarList] = useState<any>(res.carLists)
   const [brandList, setBrandList] = useState<any>(res.carLists[0].carBrand)

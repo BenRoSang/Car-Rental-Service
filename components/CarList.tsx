@@ -33,7 +33,7 @@ function CarList(props: any) {
       carId: modalVal.id
     }
 
-    const res = await CreateBooking(req_data);
+    const res = await CreateBooking(req_data, process.env.NEXT_PUBLIC_API_END_POINT || '');
 
     if(res) {
       setPickUpLoc('')
