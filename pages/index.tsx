@@ -20,7 +20,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 
 export default function Home({res, resLoc}: any) {
-  console.log(resLoc)
+
   const [oriCarList, setOriCarList] = useState<any>(res.carLists)
   const [carList, setCarList] = useState<any>(res.carLists)
   const [brandList, setBrandList] = useState<any>(res.carLists[0].carBrand)
@@ -28,7 +28,6 @@ export default function Home({res, resLoc}: any) {
   const handleFilter = (brand: string) => {
     const filterVal = oriCarList.filter((car:any) => car.carBrand[0].toLowerCase() === brand.toLowerCase())
     setCarList(filterVal);
-    console.log(filterVal, brand)
   }
 
   return (

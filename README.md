@@ -22,3 +22,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Headless CMS
     Use Hygraph
+
+### SVG Icons Free
+    https://tablericons.com/
+    heroIncons

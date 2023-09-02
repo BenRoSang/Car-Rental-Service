@@ -73,10 +73,10 @@ export const CreateBooking = async(req: any): Promise<any> => {
 
 
 
-export const GetBooking = async() => {
+export const GetBooking = async(userName:StringConstructor) => {
     const document = gql`
         query MyQuery {
-            bookings {
+            bookings(where: {userName: "`+userName+`"}) {
                 contactNumber
                 dropOffDate
                 dropOffTime
